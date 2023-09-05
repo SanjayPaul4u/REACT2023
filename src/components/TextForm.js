@@ -22,6 +22,14 @@ export default function TextForm(props) {
         const newText = text.toLocaleLowerCase();
         setText(newText);
     }
+    const handleClearClick = ()=>{
+        const newText = "";
+        setText(newText);
+    }
+    const handleGreenTextClick = () =>{
+        const myBox = document.getElementById("mybox");
+        myBox.style.color = "Green";
+    }
     //  HANDLING EVENT 🧡🧡🧡
     const handleOnChange = (event) =>{
         console.log("handle on change");
@@ -37,6 +45,8 @@ export default function TextForm(props) {
         <textarea value={text} onChange={handleOnChange} className="form-control" id="mybox" rows="4"></textarea>
         <button className="btn btn-primary mx-2 my-2" onClick={handleUpClick}>Conver to Uppercase</button>
         <button className="btn btn-primary mx-2 my-2" onClick={handleULoClick}>Conver to Lowercase</button>
+        <button className="btn btn-danger mx-2 my-2" onClick={handleClearClick}>Clear</button>
+        <button className="btn btn-success mx-2 my-2" onClick={handleGreenTextClick}>Green Text</button>
     </div>
 
     <div className="container">
