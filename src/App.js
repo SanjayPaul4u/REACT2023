@@ -8,10 +8,9 @@ function App() {
   return (
     <>      
       {/* <Navbar title = "TEXTUTILS" about = {45}/> */}
-      <Navbar/>
-      <div className="container">
-         <TextForm/>
-      </div>
+      <Navbar/>      
+      <TextForm/>
+      
     </>
   );
 }
