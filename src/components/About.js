@@ -30,6 +30,10 @@ export default function About() {
     }
   return (
     <div className='container my-4' >
+        <hr />
+        <hr />
+        <hr />
+        <h1>About Page</h1>
          <div className="accordion" id="accordionPanelsStayOpenExample">
             <div className="accordion-item" style={myStyle}>
                 <h2 className="accordion-header">

@@ -30,6 +30,19 @@ export default function TextForm(props) {
         const myBox = document.getElementById("mybox");
         myBox.style.color = "Green";
     }
+    //🧡🧡🧡
+    const handleCopyClick = () =>{
+        const myBox = document.getElementById("mybox");
+        myBox.select();
+        navigator.clipboard.writeText(myBox.value);
+
+    }
+     //🧡🧡🧡
+    const handleRemoveExSpaceClick = ()=>{
+        const newText = text.split(/\s+/);
+        // console.log(newText.join(" "));
+        setText(newText.join(" "));        
+    }
     //  HANDLING EVENT
     const handleOnChange = (event) =>{
         console.log("handle on change");
@@ -47,6 +60,8 @@ export default function TextForm(props) {
         <button className="btn btn-primary mx-2 my-2" onClick={handleULoClick}>Conver to Lowercase</button>
         <button className="btn btn-danger mx-2 my-2" onClick={handleClearClick}>Clear</button>
         <button className="btn btn-success mx-2 my-2" onClick={handleGreenTextClick}>Green Text</button>
+        <button className="btn btn-success mx-2 my-2" onClick={handleCopyClick}>Copy Text</button>
+        <button className="btn btn-success mx-2 my-2" onClick={handleRemoveExSpaceClick}>Remove Extra Spaces</button>
     </div>
 
     <div className="container">

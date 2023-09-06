@@ -10,7 +10,7 @@ function App() {
     <>      
       {/* <Navbar title = "TEXTUTILS" about = {45}/> */}
       <Navbar/>      
-      {/* <TextForm/> */}
+      <TextForm/>
       <About/>
       
     </>
