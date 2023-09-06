@@ -30,12 +30,12 @@ export default function TextForm(props) {
         const myBox = document.getElementById("mybox");
         myBox.style.color = "Green";
     }
-    //  HANDLING EVENT 🧡🧡🧡
+    //  HANDLING EVENT
     const handleOnChange = (event) =>{
         console.log("handle on change");
         setText(event.target.value);
     }
-    // THIS IS USE STATE 🧡🧡🧡
+    // THIS IS USE STATE 
     const [text, setText] = useState("Enter text here");
     
   return (
