@@ -17,31 +17,37 @@ export default function TextForm(props) {
         // console.log(text.toUpperCase());
         const upperText = text.toUpperCase();
         setText(upperText);
+        props.showAlert("success", "Converted to the Uppercase");
     }
     const handleULoClick = ()=>{
         const newText = text.toLocaleLowerCase();
         setText(newText);
+        props.showAlert("success", "Converted to the Lowercase");
     }
     const handleClearClick = ()=>{
         const newText = "";
         setText(newText);
+        props.showAlert("danger", "Text has been cleared");
     }
     const handleGreenTextClick = () =>{
         const myBox = document.getElementById("mybox");
         myBox.style.color = "Green";
+        props.showAlert("success", "Text color changed to Green");
     }
     
     const handleCopyClick = () =>{
         const myBox = document.getElementById("mybox");
         myBox.select();
         navigator.clipboard.writeText(myBox.value);
+        props.showAlert("success", "Text Copied");
 
     }
      
     const handleRemoveExSpaceClick = ()=>{
         const newText = text.split(/\s+/);
         // console.log(newText.join(" "));
-        setText(newText.join(" "));        
+        setText(newText.join(" "));  
+        props.showAlert("success", "Extra spaces has been removed");      
     }
     //  HANDLING EVENT
     const handleOnChange = (event) =>{
@@ -61,7 +67,7 @@ export default function TextForm(props) {
   return (
     <>
    <div className="container my-4">
-        <h2 style={myStyle}>{props.heading}</h2>
+        <h2 style={{color: props.mode==="dark"?"white":"black"}}>{props.heading}</h2>
         <textarea value={text} onChange={handleOnChange} style={myStyle} className="form-control" id="mybox" rows="4"></textarea>
         <button className="btn btn-primary mx-2 my-2" onClick={handleUpClick}>Conver to Uppercase</button>
         <button className="btn btn-primary mx-2 my-2" onClick={handleULoClick}>Conver to Lowercase</button>
@@ -71,7 +77,7 @@ export default function TextForm(props) {
         <button className="btn btn-success mx-2 my-2" onClick={handleRemoveExSpaceClick}>Remove Extra Spaces</button>
     </div>
 
-    <div className="container" style={myStyle}>
+    <div className="container" style={{color: props.mode==="dark"?"white":"black"}}>
         <h2>Text Summery</h2>
         <p>{countWord()} Words and {countCharacter()} Character </p>
         <p>{0.008*countWord()} Minutes to Read</p>
