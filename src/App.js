@@ -23,17 +23,28 @@ function App() {
   }
 
 
-//🧡🧡🧡
+
   const [mode, setMode] = useState("light");
   const toggleMode = ()=>{
     if(mode==="light"){
       setMode("dark");
       document.body.style.backgroundColor = "#2d055ef0";
       showAlert("success", "Dark Mode has been enabled");
+      document.title = "TextUtils - Dark mode"
+
+      ////🧡🧡🧡
+      setInterval(() => {
+      document.title = "TextUtils amazing app"        
+      }, 2000);
+
+      setInterval(() => {
+      document.title = "Install now"            
+      }, 1500);
     }else{
       setMode("light");
       document.body.style.backgroundColor = "white";
       showAlert("warning", "Dark Mode has been disabled");
+      document.title = "TextUtils - Light mode"
 
     }
 
