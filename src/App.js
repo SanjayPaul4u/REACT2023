@@ -1,10 +1,15 @@
 // import './App.css';
 import { useState } from 'react';
 import './App-edit.css';
-// import About from './components/About';
+import About from './components/About';
 import Navbar from './components/Navbar'
 import TextForm from './components/TextForm';
 import Alert from './components/Alert';
+import {
+  BrowserRouter,
+  Route,
+  Routes
+} from "react-router-dom";
 
 
 
@@ -50,13 +55,24 @@ function App() {
 
   }
   return (
-    <>      
+    <>    
+    <BrowserRouter>
+    
       {/* <Navbar title = "TEXTUTILS" about = {45}/> */}
       <Navbar mode={mode} toggleMode={toggleMode}/>  
       <Alert alert={alert}/> 
-      <TextForm mode={mode} showAlert={showAlert}/>
-      {/* <About/> */}
+          
+
+      <Routes>
+        <Route
+        eaxt path='/'
+        element={<TextForm mode={mode} showAlert={showAlert}/>}
+        />          
+        <Route eaxt path='/about' element={<About/>}/>
+      </Routes>
       
+    
+    </BrowserRouter>  
     </>
   );
 }
