@@ -28,23 +28,23 @@ function App() {
   }
 
 
-
+ //🧡🧡🧡
   const [mode, setMode] = useState("light");
   const toggleMode = ()=>{
     if(mode==="light"){
       setMode("dark");
       document.body.style.backgroundColor = "#2d055ef0";
       showAlert("success", "Dark Mode has been enabled");
-      document.title = "TextUtils - Dark mode"
-
+      
+      // document.title = "TextUtils - Dark mode"
       ////🧡🧡🧡
-      setInterval(() => {
+      /*setInterval(() => {
       document.title = "TextUtils amazing app"        
       }, 2000);
 
       setInterval(() => {
       document.title = "Install now"            
-      }, 1500);
+      }, 1500);*/
     }else{
       setMode("light");
       document.body.style.backgroundColor = "white";
@@ -66,9 +66,12 @@ function App() {
       <Routes>
         <Route
         eaxt path='/'
-        element={<TextForm mode={mode} showAlert={showAlert}/>}
+        element={<TextForm heading="Try TextUtils - Word Counter, Char Counter, Remove Extra Spaces" mode={mode} showAlert={showAlert}/>}
         />          
-        <Route eaxt path='/about' element={<About/>}/>
+        <Route 
+        eaxt path='/about' 
+        element={<About mode={mode}/>}
+        />
       </Routes>
       
     

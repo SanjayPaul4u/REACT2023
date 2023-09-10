@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 
 export default function TextForm(props) {
     const countWord = ()=>{
-        const wordNo = text===""?0:text.trim().split(/\s+/).length;
+        // BEST WORD COUNT FUNCTION 🧡🧡🧡
+        const wordNo = text.split(" ").filter((e)=>{return e.length!==0}).length;
+        console.log(wordNo);
         return wordNo;
     }
     const countCharacter = ()=>{
@@ -39,6 +41,7 @@ export default function TextForm(props) {
         const myBox = document.getElementById("mybox");
         myBox.select();
         navigator.clipboard.writeText(myBox.value);
+        document.getSelection().removeAllRanges();
         props.showAlert("success", "Text Copied");
 
     }
@@ -67,14 +70,15 @@ export default function TextForm(props) {
   return (
     <>
    <div className="container my-4">
-        <h2 style={{color: props.mode==="dark"?"white":"black"}}>{props.heading}</h2>
+        <h2 className='mb-4' style={{color: props.mode==="dark"?"white":"black"}}>{props.heading}</h2>
         <textarea value={text} onChange={handleOnChange} style={myStyle} className="form-control" id="mybox" rows="4"></textarea>
-        <button className="btn btn-primary mx-2 my-2" onClick={handleUpClick}>Conver to Uppercase</button>
-        <button className="btn btn-primary mx-2 my-2" onClick={handleULoClick}>Conver to Lowercase</button>
-        <button className="btn btn-danger mx-2 my-2" onClick={handleClearClick}>Clear</button>
-        <button className="btn btn-success mx-2 my-2" onClick={handleGreenTextClick}>Green Text</button>
-        <button className="btn btn-success mx-2 my-2" onClick={handleCopyClick}>Copy Text</button>
-        <button className="btn btn-success mx-2 my-2" onClick={handleRemoveExSpaceClick}>Remove Extra Spaces</button>
+        {/* 🧡🧡🧡 */}
+        <button disabled={countWord()===0} className="btn btn-primary mx-2 my-2" onClick={handleUpClick}>Conver to Uppercase</button>
+        <button disabled={countWord()===0} className="btn btn-primary mx-2 my-2" onClick={handleULoClick}>Conver to Lowercase</button>
+        <button disabled={countWord()===0} className="btn btn-danger mx-2 my-2" onClick={handleClearClick}>Clear</button>
+        <button disabled={countWord()===0} className="btn btn-success mx-2 my-2" onClick={handleGreenTextClick}>Green Text</button>
+        <button disabled={countWord()===0} className="btn btn-success mx-2 my-2" onClick={handleCopyClick}>Copy Text</button>
+        <button disabled={countWord()===0} className="btn btn-success mx-2 my-2" onClick={handleRemoveExSpaceClick}>Remove Extra Spaces</button>
     </div>
 
     <div className="container" style={{color: props.mode==="dark"?"white":"black"}}>
@@ -83,7 +87,7 @@ export default function TextForm(props) {
         <p>{0.008*countWord()} Minutes to Read</p>
 
         <h2>Text Preview</h2>
-        <p>{text.length>0?text:"Enter Something To Preview Here ☝."}</p>
+        <p>{text.length>0?text+"😍":"Nothing to Preview 😪."}</p>
     </div>
     </>
   )

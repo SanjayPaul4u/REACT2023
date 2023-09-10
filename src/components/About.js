@@ -1,39 +1,18 @@
-import React, { useState } from 'react'
+import React from 'react'
 
-export default function About() {
-    // const myStyle={
-    //     color: "white",
-    //     backgroundColor :"black",
-    // }
-    // ENABLE DARK MODE 🧡🧡🧡
-    const [mode, setmode] = useState("Enable Dark mode");
+export default function About(props) {
+    // ENABLE DARK MODE BY LATEST WAY🧡🧡🧡
 
-    const [myStyle, setmyStyle] = useState({
-        color: "black",
-        backgroundColor :"white",
-    });
+    const myStyle = {
+        color: props.mode==="light"?"black":"white",
+        backgroundColor: props.mode==="light"?"white":"#2d055ef0"
+        
+    };
 
-    const toggolFunc = () =>{
-        if(myStyle.color==="black"){
-            setmyStyle({
-                color: "white",
-                backgroundColor:"black"
-            })
-            setmode("Enable Light Mode")
-        }else{
-            setmyStyle({
-                color: "black",
-                backgroundColor:"white"
-            })
-            setmode("Enable Dark mode");
-        }
-    }
+    
   return (
     <div className='container my-4' >
-        <hr />
-        <hr />
-        <hr />
-        <h1>About Page</h1>
+        <h1 style={myStyle}>About Page</h1>
          <div className="accordion" id="accordionPanelsStayOpenExample">
             <div className="accordion-item" style={myStyle}>
                 <h2 className="accordion-header">
@@ -71,9 +50,6 @@ export default function About() {
                 </div>
                 </div>
             </div>
-        </div>
-        <div className="container mt-4 mx-auto">
-            <button style={myStyle} onClick={toggolFunc} type='button' className='btn btn-primary'>{mode}</button>
         </div>
     </div>
   )
