@@ -15,7 +15,7 @@ import {
 
 function App() {
 
-  //🧡🧡🧡
+
   const [alert, setAlert] = useState(null);
   const showAlert = (type, msg)=>{
     setAlert({
@@ -28,9 +28,25 @@ function App() {
   }
 
 
+
  //🧡🧡🧡
+ const removeBodyClasslist = ()=>{
+  document.body.classList.remove("bg-warning")
+  document.body.classList.remove("bg-danger")
+  document.body.classList.remove("bg-success")
+  document.body.classList.remove("bg-light")
+ }
+
+
   const [mode, setMode] = useState("light");
-  const toggleMode = ()=>{
+  const toggleMode = (cls)=>{
+    console.log(cls);
+
+     //🧡🧡🧡
+    removeBodyClasslist();
+    // document.body.classList= "bg-"+cls;// here no need to remove body class
+    document.body.classList.add("bg-"+cls);
+    
     if(mode==="light"){
       setMode("dark");
       document.body.style.backgroundColor = "#2d055ef0";
